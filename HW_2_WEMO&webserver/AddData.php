@@ -1,11 +1,12 @@
+
 <?php
 
-$l=$_GET["l"];
-$h=$_GET["h"];
-$t=$_GET["t"];
+$l=$_GET["light"];
+$h=$_GET["humi"];
+$t=$_GET["temp"];
 /*AddData.php*/
 //1 . connect to db
-$mysqli = new mysqli("localhost","chung","0000","aiot");
+$mysqli = new mysqli("localhost","root","0000","aiotdb");
 
 // Check connection
 if ($mysqli -> connect_errno) {
@@ -15,7 +16,7 @@ if ($mysqli -> connect_errno) {
 
 // 2. Perform query
 if ($result = $mysqli -> query("insert into sensors (light,humi,temp) VALUES
-   (".$l.",".$h.",".$t.")"));
+   (".$light.",".$humi.",".$temp.")"));
 
 $mysqli -> close();
 ?>
